@@ -50,9 +50,7 @@ pub use crate::binds::*;
 pub use crate::debug::Debug;
 pub use crate::error::{ConfigIncludeError, ConfigParseResult};
 pub use crate::gestures::Gestures;
-pub use crate::input::{
-    FocusFollowsMouseFocusType, Input, ModKey, ScrollMethod, TrackLayout, WarpMouseToFocusMode, Xkb,
-};
+pub use crate::input::{Input, ModKey, ScrollMethod, TrackLayout, WarpMouseToFocusMode, Xkb};
 pub use crate::layer_rule::LayerRule;
 pub use crate::layout::*;
 pub use crate::misc::*;
@@ -751,7 +749,7 @@ mod tests {
                 disable-power-key-handling
 
                 warp-mouse-to-focus
-                focus-follows-mouse focus="outputs"
+                focus-follows-mouse
                 workspace-auto-back-and-forth
 
                 mod-key "Mod5"
@@ -1161,9 +1159,7 @@ mod tests {
                 ),
                 focus_follows_mouse: Some(
                     FocusFollowsMouse {
-                        focus: Some(
-                            Outputs,
-                        ),
+                        outputs_only: None,
                         max_scroll_amount: None,
                     },
                 ),
